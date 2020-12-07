@@ -1,0 +1,42 @@
+{% extends 'peddal/base.html'%}
+
+{% block content %}
+
+<div class="row">
+{% for c in cycle%}
+<div class="col-lg-3 col-md-6">
+						<div class="single-product">
+							<img class="img-fluid" src="{{c.main_image.url}}" height="400px" alt="">
+							<div class="product-details">
+								<h6>{{c.name}}</h6>
+								<div class="price">
+									<h6> Hire Rate Rs.{{c.hire_rate}}</h6>
+
+								</div>
+								<div class="prd-bottom">
+
+									<a href="" class="social-info">
+										<span class="ti-bag"></span>
+										<p class="hover-text">add to bag</p>
+									</a>
+									<a href="" class="social-info">
+										<span class="lnr lnr-heart"></span>
+										<p class="hover-text">Wishlist</p>
+									</a>
+									<a href="" class="social-info">
+										<span class="lnr lnr-sync"></span>
+										<p class="hover-text">compare</p>
+									</a>
+									<a href="" class="social-info">
+										<span class="lnr lnr-move"></span>
+										<p class="hover-text">view more</p>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+{% endfor %}
+    </div>
+
+{% endblock %}

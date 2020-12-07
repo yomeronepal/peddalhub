@@ -1,0 +1,84 @@
+{% extends 'peddal/base.html'%}
+{% load static %}
+
+{% block content %}
+<form method="get">
+<input type="text" name="searchbycyclename" >
+
+    <select name="brand">
+        <option value=""></option>
+        {% for b in brand %}
+        <option value="{{b.id}}">{{b.brand_name}}</option>
+        {% endfor %}
+    </select>
+    <select name="condition">
+        <option value=""></option>
+        <option value="Brand New">Brand New</option>
+        <option value="Used">Used</option>
+    </select>
+    <input type="submit" value="Search" class="btn btn-success">
+</form>
+{% for message in messages %}
+
+<div class="alert alert-{{message.tags}}" role="alert">
+    {{message}}
+</div>
+{% endfor %}
+
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">Cycle Name</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Color</th>
+        <th scope="col">Cycle Description</th>
+        <th scope="col">Hire Description</th>
+        <th scope="col">Selling Rate</th>
+        <th scope="col">Hire Rate</th>
+        <th scope="col">Main Image</th>
+        <th scope="col">Rental Status</th>
+        <th scope="col">Sold Status</th>
+        <th scope="col">Condition</th>
+        <th scope="col">Posted Date</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for c in cycle %}
+    <tr>
+      <th scope="row">{{c.id}}</th>
+      <td>{{c.name}}</td>
+      <td>{{c.brand}}</td>
+      <td>{{c.color}}</td>
+        <td>{{c.cycle_description}}</td>
+        <td>{{c.hire_description}}</td>
+        <td>{{c.selling_rate}}</td>
+        <td>{{c.hire_rate}}</td>
+        <td><img alt="" id="myImg" src="{{c.main_image.url}}" width="120px" >
+
+        </td>
+        <td>{{c.rental_status}}</td>
+        <td>{{c.sold_status}}</td>
+
+        <td>{{c.condition}}</td>
+        <td>{{c.published_date}}</td>
+        <td><a href="{% url 'edit_cycle' c.id %}" class="btn btn-warning">Edit</a></td>
+        <td>
+            <button type="button" class="btn btn-primary" onclick="location.href='{% url 'delete' c.id %}'" >
+                Launch demo modal</button>
+
+        </td>
+
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}

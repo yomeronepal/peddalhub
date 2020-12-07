@@ -1,0 +1,24 @@
+{% include 'peddal/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="col-sm-8 offset-1">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+
+
+    {{form|crispy}}
+
+
+
+    <input type="file" name="images" multiple>
+
+    <input type="submit" value="Save" class="btn btn-primary btn-lg">
+
+    {{form.errors}}
+
+</form>
+    </div>
+
+{% endblock %}

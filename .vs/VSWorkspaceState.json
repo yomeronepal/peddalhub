@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\peddal",
+    "\\peddalhub",
+    "\\static",
+    "\\static\\css",
+    "\\static\\images",
+    "\\template",
+    "\\template\\peddal"
+  ],
+  "SelectedNode": "\\peddal\\views.py",
+  "PreviewInSolutionExplorer": false
+}
